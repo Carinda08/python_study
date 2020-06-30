@@ -19,39 +19,6 @@ def findPhoneNbr():
         else:
             for nbr in mo:
                 print("found number :" + "".join(tuple(nbr)))
-#?:
-def pattern1():
-    print('\nIn Funtion pattern1:')
-    s='goodie is good, and goodbye is good too'
-
-    good=re.compile(r'good(?:ie|bye)')
-    mo = good.findall(s)
-    print('?: goodie and goodbye')
-    print(mo)
-
-    good=re.compile(r'good(ie|bye)')
-    mo = good.findall(s)
-    print('None ie and bye start with good')
-    print(mo)
-
-    good=re.compile(r'(good)(ie|bye)')
-    mo = good.findall(s)
-    print('() goodie and goodbye')
-    print(mo)
-
-    good=re.compile(r'good(?!ie|bye)')
-    mo = good.findall(s)
-    print('?! good without ie or bye')
-    print(mo)
-
-
-def findIp():
-    print('\nIn Funtion findIp:')
-    s=' 192.137.1.336  192.168.1.137.123  192.168.1.138 '
-    reIp = re.findall(r'(?<![\.\d])(?:25[0-5]\.|2[0-4]\d\.|[01]?\d\d?\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)(?![\.\d])',s)
-    print(reIp)
 
 if __name__ == '__main__':
     findPhoneNbr()
-    findIp()
-    pattern1()
