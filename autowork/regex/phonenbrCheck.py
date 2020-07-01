@@ -1,9 +1,19 @@
 import re
 
+phnRgx = re.compile(r'''
+                    (\()?               # (
+                    (\d{3,4})           # area number
+                    (\))?               # )
+                    (\ |-)?             # ' ' or '-'
+                    (\d{3,4})           # middle number
+                    (\ |-)?             # ' ' or '-'
+                    (\d{4,5})           # last number
+                    '''
+                    , re.VERBOSE
+                    )
+
 def findPhoneNbr():
     print('\nIn Funtion findPhoneNbr:')
-    #                     (      0000    )    -       0000     -     0000
-    allNbr =re.compile(r'(\()?(\d{3,4})(\))?(\ |-)?(\d{3,4})(\ |-)?(\d{4,5})')
 
     nbr1 = "my number is 138-1111-1234"
     nbr2 = "my number is 13800012345"
@@ -13,7 +23,7 @@ def findPhoneNbr():
     nbrs = [nbr1, nbr2, nbr3, nbr4, nbr5]
 
     for line in nbrs:
-        mo = allNbr.findall(line)
+        mo = phnRgx.findall(line)
         if mo is None:
             print("Not Found Phone Number")
         else:
