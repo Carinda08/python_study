@@ -22,7 +22,7 @@ b1 = sheet['B1']
 print(b1.value)
 
 # use index
-for i in range(1, 8):
+for i in range(1, row+1):
     print(i, sheet.cell(row=i, column=2).value)
 
 # use row or column
