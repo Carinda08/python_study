@@ -4,7 +4,12 @@ import logging
 #logging.basicConfig(level=logging.DEBUG,
 #        format='%(asctime)s:  %(message)s')
 
-logging.debug('head')
+'''
+search all file in path, and list them
+para1 path: search path, default='.'
+para2 ext: file extension, all files if ''
+'''
+
 sdir = '.'
 sext = ''
 
