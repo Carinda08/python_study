@@ -18,7 +18,8 @@ from BtnFilepathBrowser import ButtonFilepathBrowser
 class FrameFilepath(Frame):
     def __init__(self, path='.', parent=None):
         Frame.__init__(self, parent)
-        self.path = path
+        self.path = StringVar()
+        self.path.set(path)
         self.pack(expand=YES, fill=BOTH)
         self.initWidght()
 
@@ -28,8 +29,13 @@ class FrameFilepath(Frame):
         # lbl.config(fg='red', bg='black', font=('courier', 12), relief=RAISED, bd=5)
         ent = Entry(self)
         ent.pack(side=LEFT, expand=YES, fill=X)
+        ent.config(textvariable=self.path)
         btn = ButtonFilepathBrowser(self)
         btn.pack(side=LEFT)
+        btn.setPath(self.path)
+
+    def updateVar(self):
+        self.path.set(btn.path)
 
 if __name__ == '__main__':
     FrameFilepath().mainloop()
